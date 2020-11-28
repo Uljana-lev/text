@@ -49,4 +49,89 @@ namespace HelloWorld
       a = (int)e;
    }
    a = (int)Math.Round(b); - это округление лучше всего делать не конверсий.
-   
+ 3) Строки.
+using System;
+
+namespace HelloWorld
+{
+  class Program
+  { 
+    static void Main(string[] args)
+    {
+      string str = "Hello,world!" (строки - это последоавтельности символов.)
+      str = str + "!"; -сложение.
+      Console.WriteLine(str);
+    }
+    Console.WriteLine(str.Length); - длина на этой строки. 
+    Console.WriteLine(str.Substring(0,5)); - метод этой строки.
+    char a = str[0];  символ.
+    char a = '5'; - нумерация символов с нуля. Одиарные кавычки исользуется для символов.
+    string str = null; - это не пустая строка, а отсутствие всякой строки.
+    int str = null; такого значения иметь не может. Это ошибка.
+    
+{ 
+    static void Main(string[] args)
+    { 
+      string str = Console.ReadLine(); запускать прогармму.
+      int number = int.Parse(str);
+      Console.WriteLine(number + 1);
+    }
+ }
+str = number.ToString(); из числа в строку.
+double number = double.Parse(str); она воспринимает как развитие десятичной части запятую.
+double number = double.Parse(str, CultureInfo.InvariantCulture); вводить числа через точку.
+
+4) Арифметические операции и var.
+namespace HelloWorld
+{
+  class Program
+ 1.{ 
+    static void Main(string[] args)
+    {
+      int a = 2;
+      int b = 3;
+      int c =(a+b)*2;
+      int c = (b/a)/2;
+      int c = b / a; - целочисленные деление.
+      int c = b % a; - операция остатка.
+      double d = (double) b /a;
+    }
+  {
+    double angle = 3.14159; (угол)
+    Console.WriteLine(Math.Sin(angle));
+    Console.WriteLine(Math.Pow(2,3)); - возведение в степень.
+ 
+  }
+   2. {
+      static void Main(string[] args)
+      {
+        int a = 2;
+        int b = 4;
+        var c = a * b; - компилятор самостоятельно догадается, что именно вы имели в виду.
+        Console.WriteLine(c);
+        var d = c.ToString();
+      }
+    3. {
+          static void Main(string[] args)
+          {
+            var a = 2;
+            var b = 4;
+            var c = 6;
+            
+            a = b = c;
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+            Console.WriteLine(c);
+          }
+        a += 2; (a = a + 2)
+        b *= 3; (b = b * 3)
+        a ++; оператор увеличиваетзначение переменной на единицу.
+      {
+        var a = 2;
+        Console.WriteLine(++a); -Выведет 3.
+        a = 2;
+        Console.WriteLine(a++); -Выведет 2.
+      }
+     { 
+      var a = 2;
+      Console.WriteLine(a++ + ++a);
