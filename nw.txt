@@ -135,3 +135,246 @@ namespace HelloWorld
      { 
       var a = 2;
       Console.WriteLine(a++ + ++a);
+5) Методы.
+ 
+1. namespace HelloWorld
+{
+  class Program
+  { 
+    static int DiviedeAndRound(double a, double b);
+    {
+      return (int)Math.Round(a/b);
+    }
+    public static void WriteNumber (int a)
+    {
+      Console.WriteLine(a);
+    }
+    statig void Main(string[] args)
+    {
+      var c = DividAndRound(2,3);
+      Console.WriteLine(c)
+    }
+  
+ 2.  public static void WriteNumber(int a)
+    {
+      Console.WriteLine("a is int");
+      Console.WriteLine(a);
+    }
+    public static void WriteNumber(double a)
+    {
+      Console.WriteLine("a is double");
+      Console.WriteLine(a);
+    }
+    statig void Main(string[] args)
+    {
+     int a = 2;
+     WriteNumber(a);
+    }
+  }
+
+6) Переменные.
+using System;
+
+1. namespace HelloWorld
+{
+  class Program
+   { 
+      static int globalVariable;
+      static void DoWork()
+      {
+       globalVariable = 10;
+      }
+      statig void Main(string[] args)
+      {
+         Console.WriteLine(globalVariable);
+         DoWork();
+         Console.WriteLine(globalVariable);
+      }
+
+2. namespace HelloWorld
+{
+  class Program
+   { 
+      static int globalVariable;
+      static void DoWork()
+      {
+        return 10;
+      }
+      statig void Main(string[] args)
+      {
+         var localVariable = 0; 
+         Console.WriteLine(localVariable);
+         localVariable = DoWork();
+         Console.WriteLine(localVariable);
+      }
+3. namespace HelloWorld
+{
+  class Program
+   { 
+      static int globalVariable;
+      static string globalVariable;
+      static void DoWork()
+      {
+       globalVariable = 10;
+      }
+      statig void Main(string[] args)
+      {
+         Console.WriteLine(globalVariable.ToString());
+         DoWork();
+         Console.WriteLine(globalVariable);
+      }
+4. { 
+      static int globalVariable;
+      static void DoWork()
+      { 
+        if (2 > 3)
+        {
+          int temporalVarieble = 30;
+          Console.WriteLine(temporalVariable);
+        }
+        Console.WriteLine(temporalVariable);
+        int localVariable = 10;
+        globalVariable = localVariable + 1; 
+      }
+      statig void Main(string[] args)
+      {
+         Console.WriteLine(globalVariable.ToString());
+         DoWork();
+         Console.WriteLine(globalVariable);
+      }
+
+- Ошибки.
+1) Ошибки на этапе компиляции.
+class Program
+{
+  pablic static void Main()
+  {
+    Console.WriteLine("Hello,world!"); -Здесь подчеркивается красным, значит ошибка, нужно нажимать программу для компиляции и появляется окошко, в этом окошке всегда надо нажимать no. Окно, в котором содержится перечень ошибок (Error List). Либо нажать на Console в правой кнопке выбрать пункт Resolve и выбрать один из этих двух варианов либо Using System;, либо System.Console.  
+  }
+Тут получилось без ошибок:
+class Program
+{
+  public static void Main()
+  {
+    System.Console.WriteLine("Hello,world!");
+  }
+
+2) Ошибки на этапе выполнения.
+
+1. class Program
+{
+  public staticc void Main()
+  {
+    Console.WtiteLine(1/0); - Ошибка деление на ноль. Компилятор не даст.
+   
+  }
+    
+   Так нужно:
+   {
+    int a = 0;
+    Console.WriteLine(1/a);
+   }
+2. class Program
+{
+  static string globalVariable = "abc";
+  
+  public staticc void Main()
+  {
+    Console.WtiteLine(globalVariable[3]); запустили программу и получим  IndexOutOfRangeException was unhandled, который означает, что мы вышли за пределы массива данном случае строке.
+    int a = 0;
+    Console.WriteLine(1/a);
+   }
+3. class Program
+{
+  static void Divide(int a)
+  {
+     Console.WriteLine(100 / a); Здесь отбивает с тем же исключением DivideByZeroException.
+  }
+  public static void Main()
+  {
+    var str = Console.ReadLine();
+    imt a = int.Parse(str);
+    Divide(a);
+  }
+
+class Program
+{ 
+  static int variable = int.Parse(Console.ReadLine());
+  
+  static void Divide(int a)
+  {
+    Console.WriteLine(100 / a);
+  }
+  public static void Main()
+  {
+    
+    Divide(variable);
+  }
+4. Обработка некорректного ввода пользователя:
+{
+  static void Divide (int a)
+  {
+     Console.WriteLine(100 / a);
+  }
+  public static void Main()
+  {
+    var str = Console.ReadLine();
+    imt a = int.Parse(str);
+    if (a==0)
+          Console.WriteLine("A number is zero");
+     else     
+           Divide(a);
+  }
+5. Блок try - catch:
+{
+  static void Divide (int a)
+  {
+     Console.WriteLine(100 / a);
+  }
+  public static void Main()
+  {
+    var str = Console.ReadLine();
+    int a = 0;
+    try
+    {
+      a = int.Parse(str);
+    }
+    catch
+    {
+      Console.WriteLine("A string is not in a correct format");
+      retutn;
+    }
+    if (a==0)
+          Console.WriteLine("A number is zero");
+    else     
+           Divide(a);
+ }
+
+3) Отладка.
+using System;
+
+class Program
+{
+  staic double GetDescriminant(double a, double b, double c)
+  {
+    return b*b-4*a*c;
+  }
+  staic double GetFirstRoot(double a, double b, double c)
+  {
+    var discriminant = GotDescriminant(a, b, c);
+    var squareRoot = Math.Sqrt( discriminant);
+    return ( -b -squareRoot) / (2 *a);
+  }
+  static void Main()
+  {
+    var result = GetFirstRoot(1, 1, 1);
+    Console.WriteLine(result);
+  }
+ NaN - это not number, значит отсутствие числа.
+ Иллюстрациия с помощью отладка.
+ var result = GetFirstRoot(1, 1, 1); с чего начинается отладк с того, что где -  нибудь ставим break point(это какая отметка в программе, которая показывает, что в этот момент программа должна завершиться). Перейти клавиши: F5, F10, F11.
+ Если сделать равна 0:
+ {
+  var result = GetFirstRoot(0, 1, 1);
+ }
+ то результат будет- Infinity (т.е. минус бесконечности).
