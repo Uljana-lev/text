@@ -1,0 +1,52 @@
+- Первое знакомтсво с C#. 
+1)Hello, world.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace HelloWorld
+{
+class Program
+  {
+  statig void Main(string[] args)
+  { //Этот код выводит на экран строку.
+    Console.Writeline("Hello,world")
+  }
+ }
+}
+
+2) Числовые типы данных.
+using System;
+namespace HelloWorld
+{
+  class Program
+  { 
+    statig void Main(string[] args)
+    {
+      int a = 45; (целое число)
+      double b = 34.56; (это основной тип чисел с плавающей точкой.)
+      long c = 300000000; (большие целые числа)
+      float d = 34.56f; (тип меньшей точности)
+      Console. WriteLine(a);
+    }
+  }
+}
+   b = a; - это неявная конверсия типов. Она возможна,когда не происходит потери информации.
+   a = b; - здесь возможна потеря информации.
+   Нужно так:
+   a = (int)b; -это явная конверсия типов.
+   
+   float c = (float)b;
+   float d = (float)45.78; или float d = 45.78f; или float d = 45;
+   
+   long e = 300000000;
+   a = (int)e; (при такойковерсии происходит ошибка переполнения.)
+   Нужно так:
+   checked
+   {
+      a = (int)e;
+   }
+   a = (int)Math.Round(b); - это округление лучше всего делать не конверсий.
+   
